@@ -1,0 +1,46 @@
+
+
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: #121212;
+    color: white;
+}
+
+
+body.dark-mode .card {
+    background-color: #1c1c1c;
+    color: #ffffff;
+    border: 1px solid #f7f1f1;
+}
+
+body.dark-mode .btn-outline-light {
+    color: #ffffff;
+    border-color: #f1ebeb;
+}
+
+body.dark-mode .btn-outline-info {
+    color: #ffffff;
+    border-color: #333;
+}
+
+body.dark-mode .input-group, 
+body.dark-mode .form-control {
+    background-color: #e9dbdb;
+    color: #df2929;
+    border-color: #444;
+}
+
+body.dark-mode h1, 
+body.dark-mode p {
+    color: #ffffff;
+}
+
+body.dark-mode .card-title {
+    color: #fff;
+}
+
+body.dark-mode .btn-sm {
+    background-color: #444;
+    color: #fff;
+}

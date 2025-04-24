@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Crypto News</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg: #f9fafb;
+      --card-bg: #fff;
+      --text: #1f2937;
+      --subtext: #4b5563;
+      --link: #1e40af;
+      --shadow: rgba(0, 0, 0, 0.08);
+    }
+
+    body.dark {
+      --bg: #111827;
+      --card-bg: #1f2937;
+      --text: #f3f4f6;
+      --subtext: #9ca3af;
+      --link: #60a5fa;
+      --shadow: rgba(255, 255, 255, 0.05);
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      margin: 0;
+      padding: 30px 20px;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .toggle-mode {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background-color: var(--link);
+      color: white;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: background-color 0.2s;
+    }
+
+    .news-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+      gap: 25px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .news-card {
+      background: var(--card-bg);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 30px var(--shadow);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s ease, background-color 0.3s;
+    }
+
+    .news-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .news-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .news-card-content {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .news-card h3 {
+      font-size: 1.2rem;
+      margin: 0 0 10px;
+      color: var(--link);
+    }
+
+    .news-card p {
+      color: var(--subtext);
+      flex-grow: 1;
+    }
+
+    .news-card small {
+      color: var(--subtext);
+      margin-top: 10px;
+      display: block;
+      font-size: 0.85rem;
+    }
+
+    .read-more {
+      margin-top: 15px;
+      align-self: flex-start;
+      padding: 8px 14px;
+      background-color: var(--link);
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      transition: background-color 0.2s;
+    }
+
+    .read-more:hover {
+      background-color: #1c3aa9;
+    }
+  </style>
+</head>
+<body>
+  <button class="toggle-mode" onclick="toggleMode()">🌙 Toggle Mode</button>
+  <h1>📰 Latest Crypto News</h1>
+
+  <div class="news-container">
+    {% for article in articles %}
+      <div class="news-card">
+        {% if article.urlToImage %}
+          <img src="{{ article.urlToImage }}" alt="News Image">
+        {% endif %}
+        <div class="news-card-content">
+          <h3>{{ article.title }}</h3>
+          <p>{{ article.description }}</p>
+          <small>Published: {{ article.publishedAt|date:"F j, Y, g:i a" }}</small>
+          <a href="{{ article.url }}" class="read-more" target="_blank">Read More</a>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+
+  <script>
+    function toggleMode() {
+      document.body.classList.toggle('dark');
+      localStorage.setItem('mode', document.body.classList.contains('dark') ? 'dark' : 'light');
+    }
+
+    window.onload = function () {
+      if (localStorage.getItem('mode') === 'dark') {
+        document.body.classList.add('dark');
+      }
+    };
+  </script>
+</body>
+</html>
