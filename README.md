@@ -1,4 +1,4 @@
-# 🪙 Crypto Price Tracker 🔍📈
+# 🪙 Crypto Price Tracker api based project 🔍📈
 
 A full-stack crypto tracking platform built with **Django**, **Bootstrap**, and **CoinGecko API**, designed for modern crypto investors and data enthusiasts.
 
@@ -20,8 +20,9 @@ A full-stack crypto tracking platform built with **Django**, **Bootstrap**, and 
 
 🎯 Designed for both learning and real-world use. Clean UI, responsive layout, and modular codebase.
 
----
+--- Image Of The Website
+[Project Image](![ChatGPT Image Apr 24, 2025, 12_26_38 PM](https://github.com/user-attachments/assets/1c05a467-4891-4127-ad86-fb61b2873e8b))
 
-## ✅ GitHub Tags / Topics:
+
 
 
