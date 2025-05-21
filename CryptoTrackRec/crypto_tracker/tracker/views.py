@@ -172,27 +172,6 @@ def download_csv(request):
 
 
 
-# def coins_table(request):
-#     response = requests.get("https://api.coingecko.com/api/v3/coins/markets", params={
-#         'vs_currency': 'usd',
-#         'order': 'market_cap_desc',
-#         'per_page': 20,
-#         'page': 1,
-#         'sparkline': False
-#     })
-#     coins = response.json()
-#     return render(request, 'tracker/coins_table.html', {'coins': coins})
-
-# # def chart_view(request, symbol):
-# #     return render(request, 'tracker/chart.html', {'symbol': symbol})
-
-
-# def chart_view(request, symbol):
-#     # Yahan aap apne symbol ke basis par chart ko render karenge
-#     return render(request, 'tracker/chart.html', {'symbol': symbol})
-
-
-
 
 # views.py
 import requests
@@ -225,16 +204,7 @@ def coins_table(request):
     coins = response.json()
     return render(request, 'tracker/coins_table.html', {'coins': coins})
 
-# View for showing chart based on coin symbol
-# def chart_view(request, symbol):
-#     symbol = symbol.lower()
-#     coin_id = COIN_ID_MAP.get(symbol)
 
-#     if coin_id:
-#         return render(request, 'tracker/chart.html', {'symbol': coin_id})
-#     else:
-#         # If symbol not found, default to Bitcoin chart
-#         return render(request, 'tracker/chart.html', {'symbol': 'bitcoin'})
 
 
 def chart_view(request, symbol):
@@ -244,7 +214,7 @@ def chart_view(request, symbol):
         'ada': 'BINANCE:ADAUSDT',
         'xrp': 'BINANCE:XRPUSDT',
         'doge': 'BINANCE:DOGEUSDT',
-        # aur bhi coin chaho toh add kar sakte ho
+      
     }
 
     # Default agar symbol match na ho
